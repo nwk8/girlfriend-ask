@@ -67,10 +67,10 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url("star.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    .letter-window {
+    background-image: none;
+    background-color: transparent;
+}
     border-radius: 12px;
     gap: 1px;
     padding-top: 180px;
