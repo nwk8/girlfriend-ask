@@ -55,14 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             if (yipeeSound) {
-                yipeeSound.currentTime = 0;
-                const playback = yipeeSound.play();
+    yipeeSound.currentTime = 0;
 
-                if (playback) {
-                    playback.catch(() => {
-                        // The happy ending still works if audio is unavailable.
-                    });
-                }
+    yipeeSound.play().catch((error) => {
+        console.error("Audio playback failed:", error);
+        alert("The song couldn't play. Please check the audio file name and try again.");
+    });
+}
             }
         });
     }
