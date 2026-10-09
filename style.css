@@ -58,6 +58,24 @@ body {
     color: black;
 }
 
+
+#envelope-container {
+    position: relative;
+    z-index: 100;
+}
+
+#envelope-button {
+    position: relative;
+    z-index: 101;
+    pointer-events: auto;
+    touch-action: manipulation;
+}
+
+#envelope-button img {
+    pointer-events: none;
+}
+
+
 /* Heart animation */
 
 @keyframes heartbeat {
