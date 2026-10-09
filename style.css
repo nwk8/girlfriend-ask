@@ -60,7 +60,7 @@ body {
 #envelope-title {
     margin-top: 20px;
     font-size: 18px;
-    color: #fff4df;
+    color: black; 
 }
 
 @keyframes heartbeat {
@@ -281,4 +281,29 @@ body {
     .letter-window {
         transition: none;
     }
+}
+#envelope-container {
+    position: relative;
+    z-index: 10;
+}
+
+#envelope-button {
+    position: relative;
+    z-index: 11;
+    cursor: pointer;
+    pointer-events: auto;
+    border: none;
+    background: transparent;
+    padding: 10px;
+}
+
+#envelope-button img {
+    display: block;
+    width: 150px;
+    height: auto;
+    pointer-events: none;
+}
+
+#envelope-title {
+    color: black;
 }
