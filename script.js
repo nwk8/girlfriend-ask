@@ -19,11 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const finalText = document.getElementById("final-text");
     const yipeeSound = document.getElementById("yipee-sound");
 
-    // Open the letter when the heart is tapped
-    if (envelopeButton) {
+
+   
+    // Open the letter
+    if (envelopeButton && envelopeContainer && letterContainer && letterWindow) {
         envelopeButton.addEventListener("click", () => {
             envelopeContainer.style.display = "none";
             letterContainer.style.display = "flex";
+
+            letterContainer.scrollTop = 0;
 
             requestAnimationFrame(() => {
                 letterWindow.classList.add("open");

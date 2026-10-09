@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Letter for You 🤍</title>
-
+    <script src="script.js?v=10"></script>
     <link rel="stylesheet" href="style.css?v=11">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,12 +14,23 @@
 </head>
 
 <body>
-    <div id="envelope-container">
-        <button id="envelope-button" type="button" aria-label="Open your letter">
-            <img src="./heart-emoji.jpeg" alt="Open your letter" id="envelope">
-        </button>
-        <p id="envelope-title">Letter for You 🤍</p>
-    </div>
+    
+<div id="envelope-container">
+    <button
+        id="envelope-button"
+        type="button"
+        aria-label="Open your letter"
+    >
+        <img
+            src="./heart-emoji.jpeg"
+            alt="Open your letter"
+            id="envelope"
+        >
+    </button>
+
+    <p id="envelope-title">Letter for You 🤍</p>
+</div>
+
 
     <div id="letter-container">
         <div class="letter-window">
@@ -68,7 +79,5 @@
     <audio id="yipee-sound" preload="auto">
         <source src="./lady.mp3" type="audio/mpeg">
     </audio>
-
-    <script src="script.js?v=12"></script>
 </body>
 </html>
