@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             if (finalText) {
-                finalText.style.display = "block";
+                finalText.style.display = "flex";
             }
 
             if (yipeeSound) {
