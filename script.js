@@ -2,8 +2,11 @@ let audioUnlocked = false;
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const envelope = document.getElementById("envelope-container");
+    const envelopeButton = document.getElementById("envelope-button");
+    const envelopeContainer = document.getElementById("envelope-container");
     const letter = document.getElementById("letter-container");
+    const letterWindow = document.querySelector(".letter-window");
+
     const noBtn = document.querySelector(".no-btn");
     const yesBtn = document.querySelector(".yes-btn");
 
@@ -13,41 +16,89 @@ document.addEventListener("DOMContentLoaded", () => {
     const finalText = document.getElementById("final-text");
     const yipeeSound = document.getElementById("yipee-sound");
 
-    // Safety: force audio silent on load
-    yipeeSound.pause();
-    yipeeSound.currentTime = 0;
-
-    envelope.addEventListener("click", () => {
-        envelope.style.display = "none";
-        letter.style.display = "flex";
-
-        setTimeout(() => {
-            document.querySelector(".letter-window").classList.add("open");
-        }, 50);
-    });
-
-    noBtn.addEventListener("mouseover", () => {
-        const distance = 200;
-        const angle = Math.random() * Math.PI * 2;
-
-        const moveX = Math.cos(angle) * distance;
-        const moveY = Math.sin(angle) * distance;
-
-        noBtn.style.transition = "transform 0.3s ease";
-        noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
-    });
-
-    yesBtn.addEventListener("click", () => {
-        title.textContent = "Yippeeee! 🎉";
-        catImg.src = "catyes.gif";
-        buttons.style.display = "none";
-
-        if (finalText) {
-            finalText.style.display = "block";
-        }
-
+    // Keep the sound silent when the page loads
+    if (yipeeSound) {
+        yipeeSound.pause();
         yipeeSound.currentTime = 0;
-        yipeeSound.play();
-    });
+    }
+
+    // OPEN THE LETTER 💌
+    if (envelopeButton) {
+        envelopeButton.addEventListener("click", () => {
+
+            envelopeContainer.style.display = "none";
+            letter.style.display = "flex";
+
+            // Reset the animation before showing the letter
+            letterWindow.classList.remove("open");
+
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    letterWindow.classList.add("open");
+                });
+            });
+
+        });
+    }
+
+    // MAKE THE NO BUTTON RUN AWAY 😈
+    if (noBtn) {
+        noBtn.addEventListener("mouseover", () => {
+
+            const distance = 150;
+            const angle = Math.random() * Math.PI * 2;
+
+            const moveX = Math.cos(angle) * distance;
+            const moveY = Math.sin(angle) * distance;
+
+            noBtn.style.transition = "transform 0.3s ease";
+            noBtn.style.transform =
+                `translate(${moveX}px, ${moveY}px)`;
+
+        });
+
+        // Support touchscreens too
+        noBtn.addEventListener("touchstart", () => {
+
+            const distance = 120;
+            const angle = Math.random() * Math.PI * 2;
+
+            const moveX = Math.cos(angle) * distance;
+            const moveY = Math.sin(angle) * distance;
+
+            noBtn.style.transform =
+                `translate(${moveX}px, ${moveY}px)`;
+
+        }, { passive: true });
+    }
+
+    // SAY YES! 💖
+    if (yesBtn) {
+        yesBtn.addEventListener("click", () => {
+
+            title.textContent = "Yippeeee! 🎉";
+            catImg.src = "catyes.gif";
+            buttons.style.display = "none";
+
+            // Show the happy ending message
+            if (finalText) {
+                finalText.style.display = "block";
+            }
+
+            // Play the happy cat sound after the click
+            if (yipeeSound) {
+                yipeeSound.currentTime = 0;
+
+                const playback = yipeeSound.play();
+
+                if (playback) {
+                    playback.catch(error => {
+                        console.log("Audio playback was blocked:", error);
+                    });
+                }
+            }
+
+        });
+    }
 
 });
