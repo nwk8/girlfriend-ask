@@ -1,12 +1,20 @@
 let audioUnlocked = false;
 
 document.addEventListener("DOMContentLoaded", () => {
+ const envelopeButton = document.getElementById("envelope-button");
+envelopeButton.addEventListener("click", () => {
+    document.getElementById("envelope-container").style.display = "none";
 
-    const envelopeButton = document.getElementById("envelope-button");
-    const envelopeContainer = document.getElementById("envelope-container");
     const letter = document.getElementById("letter-container");
-    const letterWindow = document.querySelector(".letter-window");
+    letter.style.display = "flex";
 
+    requestAnimationFrame(() => {
+        document.querySelector(".letter-window").classList.add("open");
+    });
+});
+const envelopeContainer = document.getElementById("envelope-container");
+    const letter = document.getElementById("letter-container");
+    const letterWindow = document.querySelector(".letter-window"); 
     const noBtn = document.querySelector(".no-btn");
     const yesBtn = document.querySelector(".yes-btn");
 
