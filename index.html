@@ -22,20 +22,18 @@
 <body>
 
     <!-- Opening Screen -->
-    <div id="envelope-container">
-
-        <button id="envelope-button" type="button" aria-label="Open your letter">
-            <img
-                src="heart-emoji.jpeg"
-                alt="A heart for you"
-                id="envelope"
-            />
-        </button>
-
-        <p id="envelope-title">Letter for You 🤍</p>
-
-    </div>
-
+    <button
+    id="envelope-button"
+    type="button"
+    onclick="
+        document.getElementById('envelope-container').style.display='none';
+        document.getElementById('letter-container').style.display='flex';
+        document.querySelector('.letter-window').classList.add('open');
+    "
+    style="cursor:pointer; position:relative; z-index:9999;"
+>
+    <img src="heart-emoji.jpeg" alt="Open letter" id="envelope">
+</button>
 
     <!-- Love Letter Screen -->
     <div id="letter-container">
