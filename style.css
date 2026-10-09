@@ -1,8 +1,12 @@
+/* =========================
+   FONTS
+========================= */
+
 .dm-mono-medium {
     font-family: "DM Mono", monospace;
     font-weight: 500;
     font-style: normal;
-  }
+}
 
 .libre-caslon-condensed {
     font-family: "Libre Caslon Condensed", serif;
@@ -10,102 +14,214 @@
     font-style: normal;
 }
 
+
+/* =========================
+   GENERAL PAGE
+========================= */
+
 body {
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+
     background-image: url("star-bg.gif");
-     font-family: "DM Mono", monospace;
-  font-weight: 500;
-  font-size: 14px;
-}
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
-/* Envelope Screen */
-#envelope-container {
-    text-align: center;
-    cursor:pointer;
-}
-
-@keyframes pulse {
-    0% {
-        transform:scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-#envelope{
-    width: 200px;
-    animation: pulse 1.5s infinite;
-    cursor: pointer;
-}
-
-#letter-title{
-    filter: drop-shadow(0 0 10px rgb(172, 6, 89));
-    background: white;
-    font-family: "Libre Caslon Condensed", serif;
-    font-weight: 400;
+    font-family: "DM Mono", monospace;
+    font-weight: 500;
     font-size: 14px;
-    font-style: normal; 
 }
 
-.no-border {
-    border: none;
-  }
 
-#letter-container{
-    display: none;
-    position:fixed;
-    inset: 0;
-    justify-content: center;
-    align-items: center;
-}
+/* =========================
+   OPENING SCREEN
+========================= */
 
-.letter-window{
-    width: 90vw;
-    max-width: 800px;
-    aspect-ratio: 3/2;
-    padding: 20px 20px 0 20px;
+#envelope-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: none;
-    background-color: transparent;
-    border-radius: 12px;
-    gap: 1px;
-    padding-top: 180px;
-    transform: scale(1.2);
-    opacity: 0;
-    transition: transform 0.6s ease, opacity 0.6s ease;
+    gap: 12px;
+    cursor: default;
 }
+
+/* Heart / envelope button */
+
+#envelope-button {
+    display: block;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+
+    animation: pulse 1.5s infinite;
+    transition: filter 0.3s ease;
+}
+
+#envelope-button:hover {
+    filter: drop-shadow(0 0 12px pink);
+}
+
+#envelope {
+    display: block;
+    width: 200px;
+    max-width: 60vw;
+    height: auto;
+    cursor: pointer;
+}
+
+/* Title underneath the button */
+
+#envelope-title {
+    margin: 0;
+    padding: 0;
+
+    color: white;
+    font-family: "DM Mono", monospace;
+    font-size: 22px;
+    font-weight: 500;
+
+    text-shadow: 0 0 10px rgb(172, 6, 89);
+}
+
+
+/* =========================
+   HEART PULSE ANIMATION
+========================= */
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =========================
+   LETTER OVERLAY
+========================= */
+
+#letter-container {
+    display: none;
+    position: fixed;
+    inset: 0;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+
+/* =========================
+   CREAM LETTER PAPER
+========================= */
+
+.letter-window {
+    box-sizing: border-box;
+
+    width: 90vw;
+    max-width: 700px;
+    min-height: 420px;
+
+    padding: 40px 35px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    gap: 16px;
+
+    /* Paper appearance */
+    background-color: #fff4df;
+    color: #573d35;
+
+    border: 1px solid #e8d5b7;
+    border-radius: 4px;
+
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.3),
+        inset 0 0 25px rgba(180, 140, 90, 0.06);
+
+    /* Initial animation state */
+    opacity: 0;
+    transform: translateY(45px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+/* Add this class when opening the letter */
 
 .letter-window.open {
-    transform: scale(1);
     opacity: 1;
+    transform: translateY(0);
 }
 
-h1 {
-    font-size: 30px;
-    margin:0;
+
+/* =========================
+   LETTER TITLE / MESSAGE
+========================= */
+
+#letter-title {
+    margin: 0;
+    padding: 0;
+
+    background: transparent;
+    color: #573d35;
+
+    filter: none;
+
+    font-family: "Libre Caslon Condensed", serif;
+    font-weight: 400;
+    font-size: clamp(22px, 4vw, 32px);
+    font-style: normal;
+
+    line-height: 1.4;
 }
 
-p {
-    font-size: 40px;
+/* Any paragraphs inside the letter */
+
+.letter-window p {
+    margin: 0;
+
+    color: #573d35;
+    font-size: 18px;
+    line-height: 1.7;
 }
 
-/* Cat */
+
+/* =========================
+   CAT GIF
+========================= */
 
 .cat {
     width: 250px;
+    max-width: 75%;
+    height: auto;
+
     margin: 10px 0;
+
     transition: width 0.4s ease;
 }
 
@@ -113,56 +229,167 @@ p {
     width: 180px;
 }
 
-/* buttons */
+
+/* =========================
+   YES / NO BUTTONS
+========================= */
+
 .buttons {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 30px;
+
     position: relative;
 }
 
-.no-wrapper{
-    position:relative;
+.no-wrapper {
+    position: relative;
 }
 
 .btn {
     width: 120px;
+    max-width: 35vw;
+    height: auto;
+
     cursor: pointer;
     user-select: none;
 }
 
 .yes-btn,
 .no-btn {
-width: 120px;
-height: auto;
-display: inline-block;
+    width: 120px;
+    max-width: 35vw;
+    height: auto;
+
+    display: inline-block;
 }
 
 .yes-btn {
     position: relative;
     z-index: 2;
+
     transform-origin: center center;
-    transition: transform 0.3s ease;
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
 }
 
 .yes-btn:hover {
     filter: drop-shadow(0 0 10px limegreen);
     cursor: pointer;
-  }
+}
 
 .no-btn {
-    z-index: 1;
     position: relative;
+    z-index: 1;
+
     transition: transform 0.15s ease;
+
     cursor: default;
 }
 
-.final-text{
+
+/* =========================
+   FINAL MESSAGE
+========================= */
+
+.final-text {
+    display: inline-block;
+
+    max-width: 90%;
+    box-sizing: border-box;
+
+    padding: 10px 20px;
+
+    background-color: rgba(255, 240, 240, 0.85);
+    color: #573d35;
+
+    border-radius: 12px;
+
     font-size: 22px;
     line-height: 1.4;
     text-align: center;
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: rgba(255,240,240,0.5);
-    border-radius: 12px;
+}
+
+
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
+
+@media (max-width: 600px) {
+
+    #envelope {
+        width: 160px;
+    }
+
+    #envelope-title {
+        font-size: 18px;
+    }
+
+    #letter-container {
+        padding: 12px;
+    }
+
+    .letter-window {
+        width: 94vw;
+        min-height: 0;
+
+        padding: 30px 20px;
+        gap: 14px;
+    }
+
+    #letter-title {
+        font-size: 25px;
+    }
+
+    .letter-window p {
+        font-size: 16px;
+    }
+
+    .cat {
+        width: 180px;
+    }
+
+    .letter-window.final .cat {
+        width: 150px;
+    }
+
+    .buttons {
+        gap: 16px;
+    }
+
+    .yes-btn,
+    .no-btn,
+    .btn {
+        width: 100px;
+    }
+
+    .final-text {
+        font-size: 18px;
+        padding: 10px 14px;
+    }
+}
+
+
+/* =========================
+   REDUCED MOTION ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #envelope-button {
+        animation: none;
+    }
+
+    .letter-window {
+        transition: none;
+    }
+
+    .cat,
+    .yes-btn,
+    .no-btn {
+        transition: none;
+    }
 }
