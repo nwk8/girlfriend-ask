@@ -1,118 +1,85 @@
+               
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Letter for You 🤍</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=6">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Caslon+Condensed:wght@400&display=swap"
-        rel="stylesheet"
-    >
-    <script src="script.js?v=7"></script>
-</body>
-</html>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Libre+Caslon+Condensed:wght@400&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
+    <!-- Opening screen -->
     <div id="envelope-container">
-    <button id="envelope-button" type="button" aria-label="Open your letter">
-        <img src="heart-emoji.jpeg" alt="Open letter" id="envelope">
-    </button>
-
-    <p id="envelope-title">Letter for You 🤍</p>
-</div>
-
-    <!-- Love Letter Screen -->
-    <div id="letter-container">
-
-        <div class="letter-window">
-
-            <h1 id="letter-title">
-                My Melanie, my Makandal, my Brandon ♡
-            </h1>
-
-            <div class="letter-message">
-
-                <p>
-                    I don't think you fully understand how special you are to me.
-                    You have  way of maki
-                </p>
-
-                <p>
-                  Melanie/Makandal/Brandon, You're simply the best, you make the room a little brighter, and i'd be honoured to have you in my life 
-                    for the long term if you'll have me. you're amazing in every way, I wanna laugh with you, appreciate you, and keep choosing you over and 
-                    over again, of course no relationship is perfect but so badly do I wanna build sometihng stable and long lasting with you, I hope my effort 
-                    this weekend shows that. You mean more to me than I can really describe, but hopefully this question does: 
-                </p>
-                    <br>
-                    Will you be my girlfriend? ♡
-                </p>
-
-            </div>
-
-
-            <!-- Cat GIF -->
-            <img
-                src="catgif.gif"
-                class="cat"
-                id="letter-cat"
-                alt="A cute cat"
-            />
-
-
-            <!-- Yes / No Buttons -->
-            <div class="buttons" id="letter-buttons">
-
-                <img
-                    src="yes.png"
-                    class="btn yes-btn"
-                    alt="Yes!"
-                />
-
-                <div class="no-wrapper">
-                    <img
-                        src="no.png"
-                        class="btn no-btn"
-                        alt="No"
-                    />
-                </div>
-
-            </div>
-
-        </div>
-
+        <button id="envelope-button" type="button" aria-label="Open your letter">
+            <img src="heart-emoji.jpeg" alt="Open letter" id="envelope">
+        </button>
+        <p id="envelope-title">Letter for You 🤍</p>
     </div>
 
+    <!-- Letter screen -->
+    <div id="letter-container">
+        <div class="letter-window">
+            <h1 id="letter-title">My Melanie, my Makandal, my Brandon ♡</h1>
 
-    <!-- Final Message -->
+            <div class="letter-message">
+                <p>
+                    I don't think you fully understand how special you are to me.
+                    You have this way of making the room a little brighter,
+                    and I'd be honoured to have you in my life for the long term,
+                    if you'll have me.
+                </p>
+
+                <p>
+                    Melanie, Makandal, Brandon — you're simply the best.
+                    You make the room a little brighter, and I'd be honoured
+                    to have you in my life for the long term, if you'll have me.
+                    You're amazing in every way. I want to laugh with you,
+                    appreciate you, and keep choosing you over and over again.
+                </p>
+
+                <p>
+                    Of course, no relationship is perfect, but I want so badly
+                    to build something stable and long-lasting with you.
+                    I hope my effort this weekend shows that.
+                </p>
+
+                <p>
+                    You mean more to me than I can really describe,
+                    but hopefully this question does:
+                </p>
+
+                <p class="letter-question">Will you be my girlfriend? ♡</p>
+            </div>
+
+            <img src="catgif.gif" class="cat" id="letter-cat" alt="A cute cat">
+
+            <div class="buttons" id="letter-buttons">
+                <img src="yes.png" class="btn yes-btn" alt="Yes!">
+                <div class="no-wrapper">
+                    <img src="no.png" class="btn no-btn" alt="No">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Happy ending -->
     <p id="final-text" class="final-text" style="display: none;">
         YAYAYAYAY :DD 💗
         <br>
         You just made me the happiest person ever!
     </p>
 
-
-    <!-- Happy Cat Sound -->
     <audio id="yipee-sound" preload="auto">
         <source src="catyipeee.mp3" type="audio/mpeg">
     </audio>
 
-
-    <!-- JavaScript -->
-    <script src="script.js?v=6"></script>
-
+    <!-- Load JavaScript only once, at the bottom -->
+    <script src="script.js?v=9"></script>
 </body>
 </html>
-
-
-
