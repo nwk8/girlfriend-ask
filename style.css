@@ -49,9 +49,8 @@ body {
 #letter-title{
     filter: drop-shadow(0 0 10px rgb(172, 6, 89));
     background: white;
-    font-weight: 400;
     font-family: "Libre Caslon Condensed", serif;
-    font-optical-sizing: auto;
+    font-weight: 400;
     font-size: 14px;
     font-style: normal; 
 }
