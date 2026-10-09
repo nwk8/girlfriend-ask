@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("starr-bg.gif");
+    background-image: url("star-bg.gif");
      font-family: "DM Mono", monospace;
   font-weight: 200;
   font-size: 14px;
@@ -67,7 +67,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url("image.png");
+    background-image: url("star.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
