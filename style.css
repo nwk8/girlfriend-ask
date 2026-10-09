@@ -12,7 +12,7 @@ body {
     min-height: 100vh;
     font-family: 'DM Mono', monospace;
     color: #fff4df;
-    background-image: url("star-bg.gif");
+    background-image: url("./star-bg.gif");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -20,9 +20,9 @@ body {
     overflow-x: hidden;
 }
 
-/* Opening screen */
-
 #envelope-container {
+    position: relative;
+    z-index: 100;
     min-height: 100vh;
     width: 100%;
     display: flex;
@@ -34,6 +34,8 @@ body {
 }
 
 #envelope-button {
+    position: relative;
+    z-index: 101;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -41,6 +43,8 @@ body {
     border: 0;
     background: transparent;
     cursor: pointer;
+    pointer-events: auto;
+    touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
     animation: heartbeat 1.5s ease-in-out infinite;
 }
@@ -50,33 +54,14 @@ body {
     width: 150px;
     max-width: 55vw;
     height: auto;
+    pointer-events: none;
 }
 
 #envelope-title {
     margin-top: 20px;
     font-size: 18px;
-    color: black;
+    color: #fff4df;
 }
-
-
-#envelope-container {
-    position: relative;
-    z-index: 100;
-}
-
-#envelope-button {
-    position: relative;
-    z-index: 101;
-    pointer-events: auto;
-    touch-action: manipulation;
-}
-
-#envelope-button img {
-    pointer-events: none;
-}
-
-
-/* Heart animation */
 
 @keyframes heartbeat {
     0%, 100% { transform: scale(1); }
@@ -84,8 +69,6 @@ body {
     40% { transform: scale(1); }
     60% { transform: scale(1.06); }
 }
-
-/* Letter screen: the screen itself scrolls */
 
 #letter-container {
     position: fixed;
@@ -103,14 +86,11 @@ body {
     overscroll-behavior-y: contain;
 }
 
-/* Letter paper */
-
 .letter-window {
     flex: 0 0 auto;
     width: 100%;
     max-width: 700px;
     height: auto;
-    max-height: none;
     margin: auto 0;
     padding: 32px 28px;
     background: #fff4df;
@@ -121,15 +101,12 @@ body {
     opacity: 0;
     transform: translateY(35px);
     transition: opacity 0.7s ease, transform 0.7s ease;
-    overflow: visible;
 }
 
 .letter-window.open {
     opacity: 1;
     transform: translateY(0);
 }
-
-/* Letter heading */
 
 #letter-title {
     margin: 0 0 24px;
@@ -141,8 +118,6 @@ body {
     color: #9b526a;
     overflow-wrap: anywhere;
 }
-
-/* Letter paragraphs */
 
 .letter-message {
     width: 100%;
@@ -169,8 +144,6 @@ body {
     color: #9b526a;
 }
 
-/* Cat */
-
 .cat {
     display: block;
     width: 180px;
@@ -184,9 +157,9 @@ body {
     max-width: 100%;
 }
 
-/* Yes and No buttons */
-
 .buttons {
+    position: relative;
+    z-index: 40;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -203,7 +176,14 @@ body {
     height: auto;
     object-fit: contain;
     cursor: pointer;
+    pointer-events: auto;
+    touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+}
+
+.yes-btn {
+    position: relative;
+    z-index: 50;
 }
 
 .yes-btn:hover {
@@ -219,10 +199,7 @@ body {
 
 .no-btn {
     position: relative;
-    touch-action: manipulation;
 }
-
-/* Ending message */
 
 .final-text {
     position: fixed;
@@ -240,8 +217,6 @@ body {
     color: #fff4df;
     background: rgba(30, 15, 35, 0.88);
 }
-
-/* Mobile and iPad */
 
 @media (max-width: 600px) {
     #envelope-button img {
