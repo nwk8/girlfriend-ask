@@ -10,9 +10,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("heart-bg.jpg");
+    background-image: url("starr-bg.gif");
      font-family: "DM Mono", monospace;
-  font-weight: 500;
+  font-weight: 200;
+  font-size: 14px;
 }
 
 /* Envelope Screen */
