@@ -220,7 +220,7 @@ body {
     line-height: 1.5;
     color: #fff4df;
     background: rgba(30, 15, 35, 0.88);
-}ß
+}
 @media (max-width: 600px) {
     #envelope-button img {
         width: 125px;
@@ -309,4 +309,16 @@ body {
 
 #envelope-title {
     color: black;
+}
+
+#final-text {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: none;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box;
 }
